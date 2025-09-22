@@ -1,4 +1,33 @@
-# React + Vite
+# Memory Card Game
+
+Live Preview:
+
+
+## How to Run
+
+1. Clone the repository:
+```bash
+git clone 
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start Development Server:
+```bash
+npm run dev
+```
+
+4. Open `http://localHost:5173` in your browser
+
+---
+
+*Part of The Odin Project's [React Course]
+([https://www.theodinproject.com/lessons/node-path-react-new-memory-card])*
+
+---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
