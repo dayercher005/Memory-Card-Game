@@ -1,12 +1,13 @@
-export {Scoreboard}
+import Score from './Score.jsx'
+import "../styles/ScoreBoard.css"
 
-function Scoreboard() {
+export default function Scoreboard() {
 
     return (
 
-        <div>
-
-            
+        <div class="scoreTextContainer">
+            <Score scoreText = "Current Score: "></Score>
+            <Score scoreText = "Best Score: "></Score>
         </div>
     )
 }

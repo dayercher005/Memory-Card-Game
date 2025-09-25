@@ -1,3 +1,5 @@
+import "../styles/Title.css"
+
 export default Title
 
 function Title() {
