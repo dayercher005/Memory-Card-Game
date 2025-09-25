@@ -1,0 +1,8 @@
+@font-face{
+    font-family: Barriecito;
+    src: local(Barriecito), url("/Barriecito-Regular.ttf");
+}
+
+.titleName{
+    font-family: Barriecito;
+}
