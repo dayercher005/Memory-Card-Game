@@ -1,10 +1,11 @@
-export {Card} 
+export default Card
 
-function Card() {
-
-    const pokemonArray = ['pikachu', 'bulbasaur', 'squirtle', 'snorlax', 'dragonite', 'eevee', 'charmander', 'jigglypuff', 'mewtwo', 'gengar', 'ditto', 'fennekin']
+function Card({image, name, shuffleFunction}) {
     
     return(
-        
+        <div className="Card" onClick = {shuffleFunction} key={name}>
+            <img src={image}/>
+            <p>{name}</p>
+        </div>
     )
 }

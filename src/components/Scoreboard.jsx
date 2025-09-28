@@ -5,7 +5,7 @@ export default function Scoreboard() {
 
     return (
 
-        <div class="scoreTextContainer">
+        <div className="scoreTextContainer">
             <Score scoreText = "Current Score: "></Score>
             <Score scoreText = "Best Score: "></Score>
         </div>
