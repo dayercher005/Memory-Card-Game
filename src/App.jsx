@@ -10,16 +10,38 @@ import './App.css'
 
   useEffect(() => {
 
+    let ignore = false
+
     async function APICaller() {
       
-      const pokemonScript = await fetch("https://pokeapi.co/api/v2/pokemon?limit=12")
-      const pokemonData = await pokemonScript.json()
+      try{
 
-      setPokemonArray(pokemonData.results)
+        for (let index = 1; index < 13; index++){
 
+          const pokemonScript = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}/`)
+          const pokemonData = await pokemonScript.json()
+          const pokemonName = pokemonData.name
+          const pokemonImage = pokemonData.sprites.front_default
+
+          if (!ignore){
+            setPokemonArray((array) => [...array, {name: pokemonName, image: pokemonImage}])
+          }  
+
+        }
+        
+      }
+       catch(error){
+        return 
+       }
+
+       
     }
 
     APICaller()
+
+    return () => {
+      ignore = true
+    }
 
 
   }, [])
