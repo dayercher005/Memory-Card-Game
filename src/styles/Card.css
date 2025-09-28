@@ -1,0 +1,26 @@
+.Card{
+    border: 3px solid var(--lightFontColor);
+    border-radius: 10px;
+    margin: auto;
+    padding: 3rem 4rem;
+}
+
+.cardPokemonName{
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--lightFontColor);
+    font-family: Barriecito;
+}
+
+.cardPokemonImage{
+    display: block;
+    margin: auto;
+}
+
+.entireCard{
+    background-color: var(--cardBackgroundColor);
+}
+
+.Card:hover > *, .Card:hover{
+    background-color: var(--cardBackgroundHoverColor)
+}
