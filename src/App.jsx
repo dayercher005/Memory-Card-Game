@@ -7,6 +7,7 @@ import './App.css'
  function App() {
 
   const [pokemonArray, setPokemonArray] = useState([])
+  const [updatedPokemonArray, setUpdatedPokemonArray] = useState([pokemonArray])
 
   useEffect(() => {
 
@@ -16,7 +17,7 @@ import './App.css'
       
       try{
 
-        for (let index = 1; index < 13; index++){
+        for (let index = 1; index < 13; index+=1){
 
           const pokemonScript = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}/`)
           const pokemonData = await pokemonScript.json()
@@ -25,16 +26,13 @@ import './App.css'
 
           if (!ignore){
             setPokemonArray((array) => [...array, {name: pokemonName, image: pokemonImage}])
-          }  
-
-        }
-        
+          }
+        } 
       }
        catch(error){
         return 
        }
 
-       
     }
 
     APICaller()
@@ -43,14 +41,31 @@ import './App.css'
       ignore = true
     }
 
-
   }, [])
+
+
+  function ArrayShuffler(array) {
+  
+    for (let index = array.length - 1; index > 0; index--) {
+      
+      const j = Math.floor(Math.random() * (index + 1));
+
+      [array[index], array[j]] = [array[j], array[index]];
+    }
+    return array;
+  }
+
+
+  function PokemonArrayShuffler() {
+    setPokemonArray(array => ArrayShuffler(array))
+  }
+
 
   return (
     <>
       <Title></Title>
       <Scoreboard></Scoreboard>
-      <CardContainer PokemonArray={pokemonArray}></CardContainer>
+      <CardContainer PokemonArray={pokemonArray} shuffleFunction={PokemonArrayShuffler}></CardContainer>
     </>
   )
 }
