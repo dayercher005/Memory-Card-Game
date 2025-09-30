@@ -7,7 +7,6 @@ import './App.css'
  function App() {
 
   const [pokemonArray, setPokemonArray] = useState([])
-  const [updatedPokemonArray, setUpdatedPokemonArray] = useState([pokemonArray])
 
   useEffect(() => {
 
@@ -25,12 +24,12 @@ import './App.css'
           const pokemonImage = pokemonData.sprites.front_default
 
           if (!ignore){
-            setPokemonArray((array) => [...array, {name: pokemonName, image: pokemonImage}])
+            setPokemonArray(array => [...array, {name: pokemonName, image: pokemonImage}])
           }
         } 
       }
        catch(error){
-        return 
+        return error
        }
 
     }
@@ -44,7 +43,7 @@ import './App.css'
   }, [])
 
 
-  function ArrayShuffler(array) {
+  const ArrayShuffler = (array) => {
   
     for (let index = array.length - 1; index > 0; index--) {
       
@@ -56,8 +55,9 @@ import './App.css'
   }
 
 
-  function PokemonArrayShuffler() {
-    setPokemonArray(array => ArrayShuffler(array))
+  const PokemonArrayShuffler = () => {
+    const updatedPokemonArray = ArrayShuffler([...pokemonArray])
+    setPokemonArray(updatedPokemonArray)
   }
 
 
