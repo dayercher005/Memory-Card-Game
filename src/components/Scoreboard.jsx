@@ -1,4 +1,5 @@
 import Score from './Score.jsx'
+import BestScore from './BestScore.jsx'
 import "../styles/ScoreBoard.css"
 
 export default function Scoreboard() {
@@ -7,7 +8,7 @@ export default function Scoreboard() {
 
         <div className="scoreTextContainer">
             <Score scoreText = "Current Score: "></Score>
-            <Score scoreText = "Best Score: "></Score>
+            <BestScore scoreText = "Best Score: "></BestScore>
         </div>
     )
 }

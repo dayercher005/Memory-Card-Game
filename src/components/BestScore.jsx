@@ -1,6 +1,6 @@
 import "../styles/Score.css"
 
-export default function Score({scoreText, score}){
+export default function BestScore({scoreText, score}){
 
 
     return (
