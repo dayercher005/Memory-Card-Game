@@ -63,10 +63,20 @@ import './App.css'
   }
 
   const PokemonArrayUpdater = (pokemonName) => {
-    setClickedPokemon((pokemonTrackerArray) => {
-      const PokemonClickingTracker = [...pokemonTrackerArray, pokemonName]
-      return PokemonClickingTracker
-    })
+    if (clickedPokemon.includes(pokemonName)){
+      setClickedPokemon(() => {
+        const newPokemonArray = []
+        return newPokemonArray
+      })
+      
+    } else {
+        setClickedPokemon((pokemonTrackerArray) => {
+          const PokemonClickingTracker = [...pokemonTrackerArray, pokemonName]
+          console.log(PokemonClickingTracker)
+          return PokemonClickingTracker
+        })
+    }
+    
   }
 
   const CardClickerHandler = (pokemonName) => {
@@ -80,7 +90,7 @@ import './App.css'
   return (
     <>
       <Title></Title>
-      <Scoreboard></Scoreboard>
+      <Scoreboard bestScore={bestScore} currentScore={score}></Scoreboard>
       <CardContainer PokemonArray={pokemonArray} clickHandler={CardClickerHandler}></CardContainer>
     </>
   )
