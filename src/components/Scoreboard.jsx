@@ -7,8 +7,8 @@ export default function Scoreboard({currentScore, bestScore}) {
     return (
 
         <div className="scoreTextContainer">
-            <Score scoreText = "Current Score: "></Score>
-            <BestScore scoreText = "Best Score: "></BestScore>
+            <Score currentScore={currentScore} scoreText = "Current Score: "></Score>
+            <BestScore bestScore={bestScore} scoreText = "Best Score: "></BestScore>
         </div>
     )
 }

@@ -16,11 +16,8 @@ import './App.css'
     let ignore = false
 
     async function APICaller() {
-      
       try{
-
         for (let index = 1; index < 13; index+=1){
-
           const pokemonScript = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}/`)
           const pokemonData = await pokemonScript.json()
           const pokemonName = pokemonData.name
@@ -34,7 +31,6 @@ import './App.css'
        catch(error){
         return error
        }
-
     }
 
     APICaller()
@@ -47,7 +43,7 @@ import './App.css'
 
 
   const ArrayShuffler = (array) => {
-  
+    
     for (let index = array.length - 1; index > 0; index--) {
       const j = Math.floor(Math.random() * (index + 1));
       [array[index], array[j]] = [array[j], array[index]];
@@ -64,8 +60,12 @@ import './App.css'
 
   const PokemonArrayUpdater = (pokemonName) => {
     if (clickedPokemon.includes(pokemonName)){
+      PokemonBestScoreUpdater(score)
       setClickedPokemon(() => {
         const newPokemonArray = []
+        
+        PokemonCurrentScoreUpdater(newPokemonArray)
+        console.log(newPokemonArray)
         return newPokemonArray
       })
       
@@ -73,11 +73,30 @@ import './App.css'
         setClickedPokemon((pokemonTrackerArray) => {
           const PokemonClickingTracker = [...pokemonTrackerArray, pokemonName]
           console.log(PokemonClickingTracker)
+          PokemonCurrentScoreUpdater(PokemonClickingTracker)
           return PokemonClickingTracker
         })
     }
-    
   }
+
+
+  const PokemonCurrentScoreUpdater = (currentPokemonArray) => {
+    setScore(() => {
+      const currentPlayerScore = currentPokemonArray.length
+      console.log(score)
+      return currentPlayerScore
+    })
+  }
+
+
+  const PokemonBestScoreUpdater = (currentScore) => {
+    if (currentScore >= bestScore){
+      setBestScore(() => currentScore)
+    } else {
+      setBestScore(bestScore)
+    }
+  }
+
 
   const CardClickerHandler = (pokemonName) => {
 
@@ -85,6 +104,8 @@ import './App.css'
 
     PokemonArrayShuffler()
   }
+
+
 
 
   return (
